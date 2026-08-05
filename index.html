@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="翻聖經大賽老虎機抽選工具">
+  <title>翻聖經大賽 2.2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">BIBLE CHALLENGE</p>
+      <h1>📖 翻聖經大賽</h1>
+      <p class="subtitle">抽出經文位置，最快翻到的人得分！</p>
+    </header>
+
+    <section class="slot-panel" aria-label="經文抽選區">
+      <div class="slot-grid">
+        <article class="slot-card">
+          <span class="slot-label">卷名</span>
+          <div class="slot-window">
+            <div id="bookReel" class="slot-reel" aria-live="polite">
+              <div class="slot-item">準備</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="slot-card">
+          <span class="slot-label">章</span>
+          <div class="slot-window">
+            <div id="chapterReel" class="slot-reel" aria-live="polite">
+              <div class="slot-item">—</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="slot-card">
+          <span class="slot-label">節</span>
+          <div class="slot-window">
+            <div id="verseReel" class="slot-reel" aria-live="polite">
+              <div class="slot-item">—</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="button-row">
+        <button id="drawButton" class="primary-button" type="button">
+          🎰 開始抽經文
+        </button>
+
+        <button id="clearButton" class="secondary-button" type="button">
+          🗑 清除紀錄
+        </button>
+      </div>
+
+      <p id="statusMessage" class="status-message">正在載入聖經資料……</p>
+
+      <div id="result" class="result-card" hidden>
+        <span class="result-label">本次抽到</span>
+        <strong id="resultText"></strong>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="抽選統計">
+      <div class="stat-card">
+        <span>已抽題數</span>
+        <strong id="usedCount">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>剩餘題數</span>
+        <strong id="remainingCount">—</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>全部題數</span>
+        <strong id="totalCount">—</strong>
+      </div>
+    </section>
+
+    <section class="history-panel">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">HISTORY</p>
+          <h2>📜 已抽過經文</h2>
+        </div>
+
+        <label class="search-box">
+          <span class="sr-only">搜尋紀錄</span>
+          <input
+            id="historySearch"
+            type="search"
+            placeholder="搜尋卷名、章或節"
+            autocomplete="off"
+          >
+        </label>
+      </div>
+
+      <ol id="historyList" class="history-list"></ol>
+
+      <p id="emptyHistory" class="empty-history">
+        還沒有抽選紀錄。
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>2.2 真實老虎機動畫版；紀錄會儲存在這台裝置的瀏覽器中。</p>
+    </footer>
+  </main>
+
+  <script src="bibleData.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
